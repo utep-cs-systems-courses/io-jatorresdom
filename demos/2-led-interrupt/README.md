@@ -10,4 +10,11 @@ on the red LED.
 
 * Modify so that different combinations of LEDs are illuminated.
 
-* Try to modify the interrupt handler so that an LED flashes on and off quickly (and thereby appears dimmer).
+Setup a little switch state machine that count the interrumpt which changes
+the state and also will reset into the first state and repeat
+
+* Try to modify the interrupt handler so that an LED flashes on and off
+  quickly (and thereby appears dimmer).
+
+in this case we can modify the blink_count to be lower so that it can be
+dimmer light.
