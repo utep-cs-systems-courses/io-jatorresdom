@@ -7,7 +7,23 @@ Be sure to understand the manipulation of P1OUT and P1DIR.
 
 * Modify so that different combinations of LEDs are illuminated.
 
-Since 
+Okay 
+
+LED_GREEN ON:
+P1OUT |= LED_GREEN;
+P1OUT &= ~LED_RED;
+
+LED_GREEN AND LED_RED ON:
+P1OUT |= LED_GREEN;
+P1OUT |= LED_RED;
+
+LED_GREEN AND LED_RED OFF:
+P1OUT &= LED_GREEN;
+P1OUT &= LED_RED;
+
+LED_RED ON:
+P1OUT &= ~LED_GREEN;
+P1OUT |= LED_RED;
 
 * Determine the impact of not setting one of the LED bits in P1DIR (and why). 
 
