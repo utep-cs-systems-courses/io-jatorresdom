@@ -1,6 +1,6 @@
 # makfile configuration
 
-COMMON_OBJECTS  = main.o led.o switches.o buzzer.o stateMachines.o
+COMMON_OBJECTS  = main.o led.o switches.o buzzer.o
 
 CPU             = msp430g2553
 

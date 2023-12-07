@@ -1,6 +1,9 @@
 #include <msp430.h>
 #include "buzzer.h"
 #include "libTimer.h"
+#include <stdio.h>
+
+int delay_int = 0;
 
 void buzzer_init() {
 
@@ -27,11 +30,11 @@ void delay_ms(unsigned int ms) {
   }
 }
 
-void play_note(int note, int duration) {
+void play_note(int note, float duration) {
   
   buzzer_set_period(note);
-  delay_ms(duration * 1000); // Convert duration from seconds to milliseconds
+  delay_int = (int)(duration * 7500);
+  delay_ms(delay_int); // Convert duration from seconds to milliseconds
   buzzer_set_period(0); // Stop playing note
   
 }
-
