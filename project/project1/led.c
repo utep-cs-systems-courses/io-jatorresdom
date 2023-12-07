@@ -2,15 +2,29 @@
 #include "led.h"
 
 void led_init() {
-  P1DIR |= (LED_GREEN | LED_RED);
-  P1OUT &= ~(LED_GREEN | LED_RED);
+  P1DIR |= LEDS;
+  P1OUT &= LED_GREEN;
+  P1OUT &= LED_RED;
 }
 
-void toggle_green() {
+void toggle_green(){
+  
+  // if(P1OUT & LED_GREEN)
+  //  P1OUT &= ~LED_GREEN;
+  //else
+  //  P1OUT |= LED_GREEN;
+
   P1OUT ^= LED_GREEN;
 }
 
-void toggle_red() {
+
+
+void toggle_red(){
+  // if(P1OUT & LED_RED)
+  //  P1OUT &= ~LED_RED;
+  //else
+  //  P1OUT |= LED_RED;
+
   P1OUT ^= LED_RED;
 }
 
