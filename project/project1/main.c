@@ -30,6 +30,7 @@ int main() {
 // global state var to count time
 
 int temp = 0;
+int reset_switches = 0;
 int secondCount = 0;
 int case_int = 0;
 
@@ -38,49 +39,19 @@ void __interrupt_vec(WDT_VECTOR) WDT(){    /* 250 interrupts/sec */
 
   states = get_switches_states();
 
+  //Blinks both lights 10 times every half second with the switch in the red board
+
   if(states[0]){
     secondCount++;
     if(secondCount >= 125){
+      reset_switches++;
       toggle_red();
       toggle_green();
       secondCount = 0;
+      if(reset_switches >= 20){
+	reset_switches = 0;
+	set_switches_states();
+      }
     }
   }
-
-  if (temp) {
-    secondCount++;
-    if(secondCount >= 125) {
-      secondCount = 0;
-      case_int++;
-    }
-    switch(case_int){
-    case 0:
-      toggle_red();
-      toggle_green();
-      break;
-    case 1:
-      toggle_green();
-      toggle_red();
-      break;
-    case 2:
-      toggle_green();
-      toggle_red();
-      break;
-    case 3:
-      toggle_red();
-      toggle_green();
-      break;
-    case 4:
-      toggle_red();
-      toggle_green();
-      break;
-    case 5:
-      toggle_red();
-      case_int = 0;
-      break;
-    default:
-      led_init();
-      break;
-    }   
-   }
 }

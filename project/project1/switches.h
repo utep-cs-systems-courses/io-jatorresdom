@@ -9,7 +9,7 @@
 #define TOP_SWITCH (SW2 | SW3 | SW4 | SW5)
 
 void switch_init();
-//void set_switches_states();
+void set_switches_states();
 void switch_interrupt_handler();
 int* get_switches_states();
 

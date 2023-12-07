@@ -106,11 +106,12 @@ int* get_switches_states(){
 
 }
 
-//void set_switches_states(){
-//  for(int i = 0; i > (NUM_SWITCHES - 1); i++){
-//    switch_states[i] = 0;
-//  }
-//}
+void set_switches_states(){
+  // for(int i = 0; i > (NUM_SWITCHES - 1); i++){
+    // switch_states[i] = 0;
+    // }
+  switch_states[0] = 0;
+}
 
 void __interrupt_vec(PORT1_VECTOR) Port_1(){
   
