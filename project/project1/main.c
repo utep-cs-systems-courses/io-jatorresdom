@@ -10,6 +10,7 @@ int temp = 0;
 //Holds the switches states 1 or 0
 int* states;
 
+
 //Notes for Megalovania and note length
 int mMelody[] = {
 
@@ -60,13 +61,64 @@ float mDuration[] = {
   .121,
   .1,
   .242,
-  .242,
-  
+  .242
   
 };
 
+
 //Notes for shooting stars
 
+int sMelody[] = {
+
+  586,
+  0,   
+  586, 
+  0,   
+  1174, 
+  0,   
+  830, 
+  0,   
+  880, 
+  0,   
+  920, 
+  0,   
+  950,
+  0,
+  586,
+  0,
+  950,
+  0,
+  950,
+  0,
+  920,
+  0,
+ 
+};
+float sDuration[] = {
+
+  .14,
+  .14,
+  .122,
+  .122,
+  .248,
+  .248,
+  .368,
+  .368,
+  .256,
+  .256,
+  .242,
+  .242,
+  .251,
+  .251,
+  .121,
+  .121,
+  .128,
+  .128,
+  .121,
+  .1,
+  .242,
+  .242
+};
 
 //Check if -1 for no song 0 for megalovania 1 for shootings stars
 int play = -1;
@@ -81,7 +133,6 @@ void play_method(int melody[], float duration[],int play_m){
       temp = 0;
       toggle_green();
       play_method(melody,duration,-1);
-      set_switches_states();
       return;
     }else{
       play_method(melody,duration,0);
@@ -121,13 +172,13 @@ void __interrupt_vec(WDT_VECTOR) WDT(){    /* 250 interrupts/sec */
 
   if(states[0]){
     secondCount++;
-    if(secondCount >= 125){
+    if(secondCount >= 60){
       reset_switches++;
       toggle_red();
       toggle_green();
       secondCount = 0;
       if(reset_switches >= 20){
-	play_note(100,10);
+	play_note(1000,3);
 	reset_switches = 0;
 	set_switches_states();
       }
@@ -171,6 +222,7 @@ void __interrupt_vec(WDT_VECTOR) WDT(){    /* 250 interrupts/sec */
       case 5:
 	if(!secondCount){
 	  set_switches_states();
+	  case_int = 0;
 	}
 	break;
       }
@@ -196,7 +248,8 @@ void __interrupt_vec(WDT_VECTOR) WDT(){    /* 250 interrupts/sec */
   if(states[3]){
     toggle_green();
     play_method(mMelody,mDuration,0);
-    toggle_red();
+    play_method(mMelody,mDuration,0);
+    set_switches_states();
     //secondCount++;
    }
 }
