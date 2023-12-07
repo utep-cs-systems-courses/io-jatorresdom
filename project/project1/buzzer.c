@@ -33,7 +33,7 @@ void delay_ms(unsigned int ms) {
 void play_note(int note, float duration) {
   
   buzzer_set_period(note);
-  delay_int = (int)(duration * 7500);
+  delay_int = (int)(duration * 4000);
   delay_ms(delay_int); // Convert duration from seconds to milliseconds
   buzzer_set_period(0); // Stop playing note
   

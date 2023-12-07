@@ -13,35 +13,56 @@ int* states;
 //Notes for Megalovania and note length
 int mMelody[] = {
 
-  587, // D5
-  0,   // Pause
-  587, // D5
-  0,   // Pause
-  587, // D5
-  0,   // Pause
-  466, // Bb4
-  0,   // Pause
-  523, // C5
-  0,   // Pause
-  466, // Bb4
-  0,   // Pause
-  523, // C5
+  586,
+  0,   
+  586, 
+  0,   
+  1174, 
+  0,   
+  830, 
+  0,   
+  880, 
+  0,   
+  920, 
+  0,   
+  950,
+  0,
+  586,
+  0,
+  950,
+  0,
+  950,
+  0,
+  920,
+  0,
+ 
 };
 float mDuration[] = {
+
+  .14,
+  .14,
+  .122,
+  .122,
+  .248,
+  .248,
+  .368,
+  .368,
+  .256,
+  .256,
+  .242,
+  .242,
+  .251,
+  .251,
+  .121,
+  .121,
+  .128,
+  .128,
+  .121,
+  .1,
+  .242,
+  .242,
   
-  0.125, // D5 (125 ms)
-  0.125, // Pause (125 ms)
-  0.125, // D5 (125 ms)
-  0.125, // Pause (125 ms)
-  0.125, // D5 (125 ms)
-  0.125, // Pause (125 ms)
-  0.250, // Bb4 (250 ms)
-  0.125, // Pause (125 ms)
-  0.250, // C5 (250 ms)
-  0.125, // Pause (125 ms)
-  0.250, // Bb4 (250 ms)
-  0.125, // Pause (125 ms)
-  0.250, // C5 (250 ms)
+  
 };
 
 //Notes for shooting stars
@@ -56,7 +77,7 @@ void play_method(int melody[], float duration[],int play_m){
   if (play_m == 0) {
     play_note(melody[temp],duration[temp]);
     temp++;
-    if(temp > 12) {
+    if(temp > 19) {
       temp = 0;
       toggle_green();
       play_method(melody,duration,-1);
