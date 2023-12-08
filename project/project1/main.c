@@ -76,15 +76,15 @@ int sMelody[] = {
   0,
   311,
   0,
-  1318,
+  329,
   0,
-  246,
-  52,
+  493,
+  415
   
 };
 float sDuration[] = {
 
-  1,
+  .75,
   .5,  // 0
   .5,
   .5, //0
@@ -98,7 +98,7 @@ float sDuration[] = {
 void play_stars(int melody[], float duration[],char play_m){
 
   if (play_m == 's') {
-    play_note(melody[temp],duration[temp]);
+    play_note(melody[temp] * 3,duration[temp]);
     temp++;
     if(temp > 7) {
       temp = 0;
@@ -114,9 +114,9 @@ void play_stars(int melody[], float duration[],char play_m){
 void play_megalovania(int melody[], float duration[],char play_m){
   
   if (play_m == 'm') {
-    play_note(melody[temp],duration[temp]);
+    play_note(melody[temp] * 4,duration[temp]);
     temp++;
-    if(temp > 19) {
+    if(temp > 18) {
       temp = 0;
       play_megalovania(melody,duration,' ');
       return;
