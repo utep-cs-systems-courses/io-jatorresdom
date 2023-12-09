@@ -29,7 +29,7 @@ load-s: project-s.elf
 	msp430loader.sh $^
 
 clean:
-	rm -f *.o *.elf
+	rm -f *.o *.elf *~
 
 main.o: led.h
 led-c.o: led.h
